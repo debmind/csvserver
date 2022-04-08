@@ -1,0 +1,5 @@
+1. Run the container and provide the port mapping
+docker run -d -i -v /home/user/project/csvserver/inputFile:/csvserver/inputdata -p 9393:9300 infracloudio/csvserver:latest
+
+2. Run again by specifying the environment variable & port mappting
+docker run -d -i -v /home/ec2-user/project/csvserver/inputFile:/csvserver/inputdata -p 9393:9300 -e CSVSERVER_BORDER='Orange' infracloudio/csvserver:latest
