@@ -2,11 +2,13 @@ version: "3"
 
 services:
   csvserver:
-   build:
-    context: ./
-    dockerfile: Dockerfile
-   ports:
+    volumes:
+     - ./inputFile:/csvserver/inputdata
+    ports:
       - "9393:9300"
+    image: infracloudio/csvserver
+    environment:
+      - CSVSERVER_BORDER=Orange
   prometheus:
     image: "prom/prometheus:v2.22.0"
     command: "--config.file=/etc/prometheus/prometheus.yml --log.level=debug"
